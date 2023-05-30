@@ -1,0 +1,224 @@
+body {
+    background-image: url("../image_fond/fon.jpg");
+    background-repeat: no-repeat;
+    margin: 0px;
+}
+
+#root {
+    margin: 0 auto;
+    background-color: #fff;
+    width: 75%;
+    display: block;
+}
+
+#up {
+    display: block;
+    display: flex;
+    margin: 0px 15px 20px ;
+}
+
+#for-man, #for-woman {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    margin-top: 150px;
+    margin-left: 30px;
+    min-width: 180px;
+}
+
+#for-man {
+    position: relative;
+    right: 0;
+    width:30.33%;
+}
+
+#for-woman {
+    position: relative;
+    left: 0;
+    width:30.33%;
+}
+
+.btn_moda {
+    display: block;
+    border: none;
+    background: rgb(255,255,255);
+    text-align: left;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 28px;
+    color: gray;
+    margin-bottom: 15px;
+}
+
+.moda_man, .moda_woman {
+    display: block;
+
+}
+
+select {
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 20px;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+}
+
+.btn-class {
+    width: 170px;
+    height: 25px;
+    border: 0 gray ;
+    border-radius: 8px;
+    background: rgb(255,255,255);
+    text-align: left;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+    padding-left: 10px;
+    color: black;
+}
+
+/* Focus */
+input[type="button" i].btn-class:focus + .btn-class  {
+   box-shadow: none;
+}
+
+/* Hover/active */
+input[type="button" i].btn-class:not(.activated):hover {
+    color: #ffc72e;
+}
+
+input [type="button" i].btn-class:not(.activated):active  {
+    color: #AD5B18;
+}
+
+/* Disabled */
+input [type="button" i] .btn-class:disabled {
+    color: orange;
+}
+
+.activated {
+  color: orange;
+  transform: rotate(360deg);
+
+}
+
+#input-data {
+    width: 33.33%;
+    display: inline-block;
+    margin-right: 0px;
+    vertical-align: top;
+}
+
+#btn {
+    margin: 15px 0 20px 15px;
+
+}
+
+#dropBox {
+    margin: 15px;
+    width: 300px;
+    height: 300px;
+    border: 2px dashed gray;
+    border-radius: 8px;
+    background: lightyellow;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+
+    left: 0;
+}
+
+#dropBox div {
+    margin: 250px 50px 20px;
+    color: orange;
+    font-size: 14px;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+#input-file {
+    position: relative;
+    display: inline-block;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 14px;
+
+}
+
+.input-file-btn {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 14px;
+    vertical-align: middle;
+    color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 8px;
+    background-color: orange;
+    line-height: 22px;
+    height: 40px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: none;
+    margin: 0 30px 0 40px;
+    width: 300px;
+    transition: background-color 0.2s;
+}
+
+#input-file input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 100;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+/* Focus */
+#input-file input[type=file]:focus + .input-file-btn {
+   box-shadow: none;
+}
+
+/* Hover/active */
+#input-file:hover .input-file-btn {
+    background-color: #FFA538;
+}
+#input-file:active .input-file-btn {
+    background-color: #AD5B18;
+}
+
+/* Disabled */
+#input-file input[type=file]:disabled + .input-file-btn {
+    background-color: orange;
+}
+
+#namefile {
+    margin-left: 0px;
+    margin-top: 15px;
+    border: 0px !important;
+    padding: 0;
+    outline: none;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+    width: 300px;
+}
+
+#output-data {
+    display: block;
+    width: 100%;
+
+
+}
+
+#footer {
+    display: block;
+    height: 100px;
+    width: 100%;
+    background: rgb(255,255,202);
+    color: #000;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+    padding: 20px 0;
+    margin: 33px 0 0 0;
+}
+
+#image-container img {
+    width: 20%;
+}

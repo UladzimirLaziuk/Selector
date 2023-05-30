@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+
+    image: django_web
+    # '/start' is the shell script used to run the service
+    command: gunicorn selector_project.wsgi:application --bind 0.0.0.0:8000 --timeout 0
+
+    volumes:
+      - .:/usr/src/
+    ports:
+      - '8000:8000'
+    # env_file is used to manage the _p variables of our project
+    env_file:
+      - .env_dev
+    depends_on:
+      - redis
+      - db
+
+  db:
+    image: postgres:14-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_DB=yolodb
+      - POSTGRES_USER=userdjango
+      - POSTGRES_PASSWORD=userdjango
+
+  redis:
+    image: redis:6-alpine
+    expose:
+      - '6379'
+    ports:
+        - 6379:6379
+
+  celery_worker:
+    build: .
+    image: celery_worker
+    command: celery -A selector_project worker -l INFO
+    volumes:
+      - .:/usr/src/
+    env_file:
+      - .env_dev
+    depends_on:
+      - redis
+      - db
+
+
+volumes:
+  postgres_data:

@@ -1,0 +1,10 @@
+db.sqlite3
+env_selector/*
+selector_app/migrations/*
+mediafiles/
+.env_dev
+*.mp4
+*.pt
+selector_app/
+.idea/
+search_photo/*

@@ -5,7 +5,8 @@ mediafiles/
 .env_dev
 *.mp4
 *.pt
-selector_app/
+
 .idea/
 search_photo/*
 selector_project/__pycache__/
+selector_app/__pycache__/

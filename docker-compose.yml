@@ -6,7 +6,7 @@ services:
 
     image: django_web
     # '/start' is the shell script used to run the service
-    command: gunicorn selector_project.wsgi:application --bind 0.0.0.0:8000 --timeout 0
+    command: python manage.py runserver 0.0.0.0:8000 #gunicorn selector_project.wsgi:application --bind 0.0.0.0:8000 --timeout 0
 
     volumes:
       - .:/usr/src/

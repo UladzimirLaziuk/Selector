@@ -1,7 +1,4 @@
 import time
-
-
-import numpy as np
 import redis
 from celery import shared_task
 import logging
@@ -18,17 +15,21 @@ from django.core.mail import EmailMultiAlternatives, send_mail
 from django.template.loader import render_to_string
 from django.utils import timezone
 import pytz
-from app_detect import models
-from app_detect.detection_utils import predict_model, get_model_stream
-from ultralytics.yolo.utils import LOGGER
+from selector_app import models
 
 
 
 
 
-@app.task(name="rtsp_processing_task", bind=True)
-def rtsp_processing_task(self, *args, source=None, save=True, classes=0, line_thickness=1, show=False,
-                         project=settings.BASE_DIR, model_id=None, **kwargs):
+
+@app.task(name="image_processing_task")
+def image_processing_task(*args, **kwargs):
+    print(args, kwargs)
     pass
+
+
+
+
+
 
 

@@ -25,7 +25,7 @@ from selector_app import models
 @app.task(name="image_processing_task")
 def image_processing_task(*args, **kwargs):
     print(args, kwargs)
-    pass
+
 
 
 

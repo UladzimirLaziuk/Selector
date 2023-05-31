@@ -26,8 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomeView.as_view(), name='home'),
     path('search/', views.SearchModelCreateView.as_view(), name='search_model_create'),
-    path('task/<int:pk>/', views.TaskDetailAPIView.as_view(), name='task_detail'),
-    path('api/documentation/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('task/<str:id_worker>', views.TaskDetailAPIView.as_view(), name='task_detail'),
+    path('api/documentation', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:

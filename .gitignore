@@ -10,3 +10,4 @@ mediafiles/
 search_photo/*
 selector_project/__pycache__/
 selector_app/__pycache__/
+__pycache__/

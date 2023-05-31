@@ -43,3 +43,4 @@ class SearchModelCreateView(CreateAPIView):
 class TaskDetailAPIView(RetrieveAPIView):
     queryset = TaskModel.objects.all()
     serializer_class = serializers.TaskModelSerializer
+    lookup_field = 'id_worker'

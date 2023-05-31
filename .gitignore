@@ -8,4 +8,4 @@ mediafiles/
 selector_app/
 .idea/
 search_photo/*
-selector_project/__pycache__
+selector_project/__pycache__/

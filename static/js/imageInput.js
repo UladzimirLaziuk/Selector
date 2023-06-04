@@ -5,7 +5,7 @@ var namesDirectories = ["shirt men", "sportswear men", "trousers men", "t-shirt 
 const nameFiles = [
 ['0 (4).jpg','0.png','1 (4).jpg','2 (3).jpg','3 (3).jpg','4 (2).jpg','4 (4).jpg','5 (2).jpg','7 (3).jpg','8 (2).jpg'], 
 ['00d6d20d74b446772e5090f1e18bea8f.jpg','0d6059010082727a59238494c76588c4.jpg','0q6ilubrom4pr0hf9scjdjwqqwotwmrg.jpg','1eacfdd728cefa9d5f258805b09bc813.jpg','1h2z7lf41pciqcu7cbhrz7vml4myoccx.jpg','2hoplx44gx30gi5uyeprmb8ceufhx5bl.png','4db494b3b4f719085a029ecde7344fa8.jpg','4e50e727e020ed1d91af7458be369e94.png','06f0261fbc967b49d2d368f469591f12.jpg','8bb0ccd57b5ff0fd5def5a9f449c4652.jpg'], 
-['0 (2).jpg','0 (3).jpg','1 (2).jpg','1 (3).jpg','2 (2).jpg','2.jpg','2.png','3 (2).jpg','3 (3).jpg','3 (4).jpg'], 
+['0 (2).jpg','t_image.jpg','1 (2).jpg','1 (3).jpg','2 (2).jpg','2.jpg','2.png','3 (2).jpg','3 (3).jpg','3 (4).jpg'],
 ['5.jpg','7.jpg','11.jpeg','18.jpeg','11478418_7279899_480.jpg','12074338_9753939_480.jpg','12147157_10105325_480.jpg','12559186_11995986_480.jpg','12965421_13582339_480.jpg','12687446_12520335_480.jpg'], 
 ['1 (3).jpg', '1 (4).jpg', '1 (4).jpg', '3 (2).jpg', '3.jpg', '4 (2).jpg', '4 (5).jpg', '4.jpg', '5 (2).jpg', '5 (3).jpg'],
 ['0 (2).jpg','1.jpg','3 (2).jpg','4.jpg','5 (2).jpg','5.jpg','6.jpg','7.png','8 (2).jpg','8.jpg'],

@@ -7,7 +7,7 @@ from selector_app import serializers
 from rest_framework import status
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
-
+from rest_framework.renderers import TemplateHTMLRenderer
 # Create your views here.
 
 class HomeView(TemplateView):
@@ -40,7 +40,16 @@ class SearchModelCreateView(CreateAPIView):
         return super().post(request, *args, **kwargs)
 
 
+class MyTemplateHTMLRenderer(TemplateHTMLRenderer):
+    def get_template_context(self, object_list, renderer_context):
+        response = renderer_context['response']
+        if response.exception:
+            object_list['status_code'] = response.status_code
+        return {'object_list': object_list, 'obj_imag':SearchModel.objects.last().photo_search.url}
+
 class TaskDetailAPIView(RetrieveAPIView):
     queryset = TaskModel.objects.all()
+    renderer_classes = [MyTemplateHTMLRenderer]
+    template_name = 'selector_app/my_task_img.html'
     serializer_class = serializers.TaskModelSerializer
     lookup_field = 'id_worker'

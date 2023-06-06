@@ -14,8 +14,8 @@ def get_choices():
 
 class SearchModel(models.Model):
     CHOICES_VERSION = (
-        ('1', 1),
-        ('2', 2),
+        ('1', '1 color'),
+        ('2', '2 color'),
     )
 
     version_search = models.CharField(max_length=10, choices=CHOICES_VERSION)
@@ -50,10 +50,10 @@ def search_processing(sender, instance, created, **kwargs):
         task_kwargs.update({'class_name': instance.class_name})
         version_search = instance.version_search
         print(version_search, type(version_search))
-        if version_search == '2':
-            result = image_processing_task_v2.apply_async(kwargs=task_kwargs)
-        else:
+        if version_search == '1':
             result = image_processing_task_v1.apply_async(kwargs=task_kwargs)
+        else:
+            result = image_processing_task_v2.apply_async(kwargs=task_kwargs)
         TaskModel.objects.create(id_worker=result.id, model_search=instance)
 
 # docker run -p 6379:6379 --name redis -d redis redis-server

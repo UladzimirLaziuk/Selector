@@ -17,8 +17,8 @@ from selector_app import models
 from selector_app.sim_search_ds import MySearchImage
 from selector_project.settings import BASE_DIR
 
-@app.task(name="image_processing_task_v1", bind=True)
-def image_processing_task_v1(self, *args, **kwargs):
+@app.task(name="image_processing_task_v2", bind=True)
+def image_processing_task_v2(self, *args, **kwargs):
     print(args, kwargs)
     obj_search = MySearchImage(class_name=kwargs.get('class_name'))
     photo_search = kwargs.get('photo_search')
@@ -38,8 +38,8 @@ def image_processing_task_v1(self, *args, **kwargs):
         print(model_task)
 
 
-@app.task(name="image_processing_task_v2", bind=True)
-def image_processing_task_v2(self, *args, **kwargs):
+@app.task(name="image_processing_task_v1", bind=True)
+def image_processing_task_v1(self, *args, **kwargs):
     print(args, kwargs)
     photo_search = kwargs.get('photo_search')
     data_dir = os.path.join(settings.BASE_DIR, 'selector_images')

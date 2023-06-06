@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,13 +124,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#
-# # Actual directory user files go to
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-#
-# # URL used to access the media
-# MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Actual directory user files go to
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+
+# URL used to access the media
+MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_URL = os.environ.get("CELERY_URL", 'redis://localhost:6379')

@@ -9,7 +9,7 @@ class SearchModelProcessingSerializer(serializers.ModelSerializer):
     # )
     class Meta:
         model = models.SearchModel
-        fields = 'class_name', 'photo_search'#, 'detail_link'
+        fields = 'class_name', 'photo_search', 'version_search'
         # extra_kwargs = {'photo_search': {'write_only': True}}
 
     def to_representation(self, instance):

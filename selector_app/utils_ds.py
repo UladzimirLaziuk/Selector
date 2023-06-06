@@ -95,6 +95,10 @@ def sort_colors_by_distance(color_list, query_color, ord=np.inf):
     return sorted_indices, sorted_distances
 
 
+def no_sort_colors_by_distance(color_list, query_color, ord=np.inf):
+    distances = np.array([get_new_distance(color, query_color, ord=ord) for color in color_list])
+    return range(len(distances)), distances
+
 def extract_color_rm(path_image, num_colors=2, bg=None):
     image = get_image_remove(path_file=path_image, color_bg=bg)
     colors = colorgram.extract(image, num_colors)

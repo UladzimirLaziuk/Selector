@@ -2,18 +2,23 @@ from django.db import models
 from django.utils import timezone
 from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
-from selector_project.tasks import image_processing_task
+from selector_project.tasks import image_processing_task_v1, image_processing_task_v2
 import os
-
+from django.conf import settings
 
 def get_choices():
-    for name_folder in os.listdir('./Selector'):
+    for name_folder in os.listdir(os.path.join(settings.BASE_DIR, 'Selector')):
         name = ' '.join(name_folder.split()[:2])
         yield (name, name.title())
 
 
 class SearchModel(models.Model):
+    CHOICES_VERSION = (
+        ('1', 1),
+        ('2', 2),
+    )
 
+    version_search = models.CharField(max_length=10, choices=CHOICES_VERSION)
     class_name = models.CharField(max_length=50, choices=get_choices())
     photo_search = models.ImageField(upload_to='search_photo')
     date_search = models.DateTimeField(auto_now=True)
@@ -43,7 +48,13 @@ def search_processing(sender, instance, created, **kwargs):
         task_kwargs.update({'model_id': instance.pk})
         task_kwargs.update({'photo_search': instance.photo_search.url})
         task_kwargs.update({'class_name': instance.class_name})
-        result = image_processing_task.apply_async(kwargs=task_kwargs)
+        version_search = instance.version_search
+        print(version_search, type(version_search))
+        if version_search == '2':
+            result = image_processing_task_v2.apply_async(kwargs=task_kwargs)
+        else:
+            result = image_processing_task_v1.apply_async(kwargs=task_kwargs)
         TaskModel.objects.create(id_worker=result.id, model_search=instance)
 
 # docker run -p 6379:6379 --name redis -d redis redis-server
+#sudo apt-get install python3-dev build-essential gcc libpq-dev

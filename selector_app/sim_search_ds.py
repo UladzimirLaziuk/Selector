@@ -44,14 +44,14 @@ class MySearchImage(SearchImage):
             color_list = [extract_color_rm(path, num_colors=3, bg=color_bg) for path in parent_dict_result.values()]
 
         else:
+
             color_list = self.df_colors.features.loc[parent_dict_result.keys()].tolist()
 
             color_bg = find_missing_color([self.image_path])
             query_vector = extract_color_rm(self.image_path, num_colors=3, bg=color_bg)
 
-
         sorted_indices, sorted_distances = sort_colors_by_distance(color_list, query_vector, ord=1)
-
+        print(sorted_distances)
 
         array_sort_colors = []
         for index, dist in zip(sorted_indices, sorted_distances):

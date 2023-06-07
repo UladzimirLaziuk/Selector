@@ -20,7 +20,7 @@
         </div>
 
         {% for item in object_list.list_images %}
-            <img src="{{ item.path_photo|relative_path }}" alt="{{ item.name }}" width='200' height='200'>
+            <img src="{{ item|relative_path }}" alt="{{ item.name }}" width='200' height='200'>
         {% endfor %}
     </div>
 

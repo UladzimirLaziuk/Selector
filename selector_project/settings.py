@@ -123,14 +123,17 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
+    # os.path.join(BASE_DIR, "selector_images"),
+    # os.path.join(BASE_DIR, "Selector"),
+
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Actual directory user files go to
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 # URL used to access the media
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/mediafiles/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_URL = os.environ.get("CELERY_URL", 'redis://localhost:6379')

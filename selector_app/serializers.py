@@ -34,7 +34,7 @@ class TaskModelSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         if instance.status_search == 'completed':
-            representation['list_images'] = instance.model_search.result_search_model.first().result_search_images.all()
+            representation['list_images'] = instance.model_search.result_search_model.first().result_search_images.values_list('path_photo', flat=True)
         else:
             pass
             # representation['result'] = 'Processing'

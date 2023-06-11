@@ -11,7 +11,7 @@ from rest_framework.renderers import TemplateHTMLRenderer
 # Create your views here.
 
 class HomeView(TemplateView):
-    template_name = 'selector_app/index.html'
+    template_name = 'selector_app/index_new.html'
 
 
 class SearchModelCreateView(CreateAPIView):
@@ -49,7 +49,7 @@ class MyTemplateHTMLRenderer(TemplateHTMLRenderer):
 
 class TaskDetailAPIView(RetrieveAPIView):
     queryset = TaskModel.objects.all()
-    renderer_classes = [MyTemplateHTMLRenderer]
-    template_name = 'selector_app/my_task_img.html'
+    # renderer_classes = [MyTemplateHTMLRenderer]
+    # template_name = 'selector_app/my_task_img.html'
     serializer_class = serializers.TaskModelSerializer
     lookup_field = 'id_worker'

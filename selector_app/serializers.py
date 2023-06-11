@@ -1,3 +1,5 @@
+import os
+
 from rest_framework import serializers
 from selector_app import models
 from django.urls import reverse
@@ -34,7 +36,19 @@ class TaskModelSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         if instance.status_search == 'completed':
-            representation['list_images'] = instance.model_search.result_search_model.first().result_search_images.values_list('path_photo', flat=True)
+            request = self.context.get('request')
+
+            host = request.get_host()
+            list_path = []
+            for path in instance.model_search.result_search_model.first().result_search_images.values_list('path_photo', flat=True):
+
+                if 'usr/src' in path:
+                    relative_path = path.replace('usr/src/', '')
+                else:
+                    relative_path = '/'+os.path.relpath(path, os.getcwd())
+                list_path.append(host+relative_path)
+            representation[
+                'list_images'] = list_path
         else:
             pass
             # representation['result'] = 'Processing'

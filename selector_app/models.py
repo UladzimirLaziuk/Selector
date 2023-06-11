@@ -49,7 +49,7 @@ def search_processing(sender, instance, created, **kwargs):
         task_kwargs.update({'photo_search': instance.photo_search.url})
         task_kwargs.update({'class_name': instance.class_name})
         version_search = instance.version_search
-        print(version_search, type(version_search))
+        # print(instance.class_name, 'instance.class_name')
         if version_search == '1':
             result = image_processing_task_v1.apply_async(kwargs=task_kwargs)
         else:
